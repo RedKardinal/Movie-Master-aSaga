@@ -7,11 +7,12 @@ import '../Home/Home.css'
 
 class Home extends Component {
 
-    // Renders the entire app on the DOM
+    // Fires of dispatch and renders movies on the DOM.
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
     } // end DidMount
 
+    // Handles the click to information page.
     handleClick = (id) => {
         console.log('Clicked!');
         this.props.history.push(`/Info/${id}`)
@@ -21,13 +22,13 @@ class Home extends Component {
     render() {
       return (
           <div className="Home">
-              <p>Test This is text</p>
+              <h1>Home Page</h1>
               <div className="movieMap">
               {this.props.reduxState.movieList.map((movies) => {
                   return (
                       <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title}/>
                   )
-              })}
+              })} {/* End map of movies */}
               </div>     
           </div>
       );

@@ -16,12 +16,12 @@ import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 // -------------------- END IMPORTS --------------------- //
 
-
-
 // ---- Root Sagas ---- //
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_ID_DETAILS', fetchGenre);
+    // yield takeEvery('PUT_DETAILS', putDetails);
+
 }
 
 //------------ GET MOVIES ----------------//
@@ -35,17 +35,23 @@ function* fetchMovies(){
     }    
 }
 
-//------------ GET MOVIE GENRE ----------------//
+//------------ GET GENRE ----------------//
 function* fetchGenre(action){
     try{
         const response = yield axios.get(`/movies/${action.payload.id}`)
         console.log('This is from the GET genres index.js', response.data); 
         yield put ({ type: 'SET_GENRES', payload: response.data})
     }catch(error){
-        console.log('Error from getGenre', error);
-        console.log('This is from the GET genres index.js', action.payload);               
+        console.log('Error from fetchGenre', error);
     }
 }
+
+//------------ PUT DETAILS ----------------//
+// function* putDetails(action) {
+//     yield axios.put(`movies/update/${action.payload.id}`)
+//     console.log('This is from the PUT DETAILS index.js', response.data); 
+//     yield put ({type:})
+// }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

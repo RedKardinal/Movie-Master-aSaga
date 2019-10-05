@@ -36,7 +36,7 @@ class Info extends Component {
       return (
         <Router>
           <div className="Info">
-            <h2>Test Text</h2>
+            <h2>Test Info</h2>
             {this.props.reduxState.genres.map((movies) => {
                   return (
                       <div key={movies.id}>

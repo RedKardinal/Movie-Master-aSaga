@@ -7,6 +7,7 @@ import './App.css';
 // ---- Connect Pages to App.js ---- //
 import Home from '../Home/Home';
 import Info from '../Info/Info';
+import Edit from '../Edit/Edit';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -16,7 +17,7 @@ class App extends Component {
         <div className="App">
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/Info/:id' component={Info}></Route>
-          <Route exact path='/Edit/:id' component={Info}></Route>
+          <Route exact path='/Edit/:id' component={Edit}></Route>
         </div>
       </Router>
     );
