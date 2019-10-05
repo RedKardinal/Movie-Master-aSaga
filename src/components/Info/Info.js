@@ -28,7 +28,7 @@ class Info extends Component {
     }
 
     editInfo = () => {
-
+        this.props.history.push(`/Edit/`)
     }
 
 
