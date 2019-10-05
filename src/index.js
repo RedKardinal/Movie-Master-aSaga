@@ -21,17 +21,30 @@ import axios from 'axios';
 // ---- Root Sagas ---- //
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
+    yield takeEvery('FETCH_ID_DETAILS', fetchGenre);
 }
 
 //------------ GET MOVIES ----------------//
 function* fetchMovies(){
     try {
         const response = yield axios.get('/movies');
-        // console.log('This is from the GET index.js', response.data);        
+        console.log('This is from the GET MOVIES index.js', response.data);        
         yield put({ type: 'SET_MOVIES', payload: response.data });
     } catch (error) {
         console.log('Error while fetching movies (index.js)', error);
     }    
+}
+
+//------------ GET MOVIE GENRE ----------------//
+function* fetchGenre(action){
+    try{
+        const response = yield axios.get(`/movies/${action.payload.id}`)
+        console.log('This is from the GET genres index.js', response.data); 
+        yield put ({ type: 'SET_GENRES', payload: response.data})
+    }catch(error){
+        console.log('Error from getGenre', error);
+        console.log('This is from the GET genres index.js', action.payload);               
+    }
 }
 
 // Create sagaMiddleware

@@ -14,7 +14,7 @@ class Home extends Component {
 
     handleClick = (id) => {
         console.log('Clicked!');
-        this.props.history.push(`/Info/:${id}`)
+        this.props.history.push(`/Info/${id}`)
         this.props.dispatch({ type: 'FETCH_ID', payload: id });
     } // end handleClick
 
@@ -25,7 +25,7 @@ class Home extends Component {
               <div className="movieMap">
               {this.props.reduxState.movieList.map((movies) => {
                   return (
-                      <img onClick={this.handleClick} key={movies.id} src={movies.poster} alt={movies.title}/>
+                      <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title}/>
                   )
               })}
               </div>     

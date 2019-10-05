@@ -15,11 +15,25 @@ import { Button } from '@material-ui/core'
 
 class Info extends Component {
 
+        // Renders the entire app on the DOM
+    
+    
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_ID_DETAILS', payload: this.props.match.params })
+        console.log(this.props.match.params.id);
+        
+    } // end DidMount
+
     render() {
       return (
         <Router>
           <div className="Info">
             <h2>Test Text</h2>
+            {this.props.reduxState.genres.map((movies) => {
+                  return (
+                      <img key={movies.id} src={movies.poster} alt={movies.title}/>
+                  )
+            })}
           </div>
         </Router>
       );

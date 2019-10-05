@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path='/' component={Home}></Route>
-
+          <Route exact path='/Info/:id' component={Info}></Route>
         </div>
       </Router>
     );
