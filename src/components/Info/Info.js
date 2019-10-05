@@ -21,8 +21,16 @@ class Info extends Component {
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ID_DETAILS', payload: this.props.match.params })
         console.log(this.props.match.params.id);
-        
     } // end DidMount
+
+    handleBack = () => {
+        this.props.history.push('/')
+    }
+
+    editInfo = () => {
+
+    }
+
 
     render() {
       return (
@@ -31,7 +39,20 @@ class Info extends Component {
             <h2>Test Text</h2>
             {this.props.reduxState.genres.map((movies) => {
                   return (
-                      <img key={movies.id} src={movies.poster} alt={movies.title}/>
+                      <div key={movies.id}>
+                      <img src={movies.poster} alt={movies.title}/>
+                        <div>
+                            <h2>{movies.title}</h2>
+                            <h3>{movies.genre_name}</h3>
+                        </div>
+                        <div>
+                            <p>{movies.description}</p>
+                        </div>
+                        <div>
+                            <Button onClick={this.handleBack} variant='contained' color="primary">Back</Button>
+                            <Button onClick={this.editInfo} variant='contained' color="primary">Edit</Button>
+                        </div>
+                      </div>
                   )
             })}
           </div>

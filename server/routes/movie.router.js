@@ -19,15 +19,15 @@ router.get('/:id', (req, res)=> {
     console.log('In ROUTER GET ID', req.params);
     const sqlText = 
                             
-                            `SELECT "movies".id, "movies".poster, "movies".title, "movies".description, "genres".name FROM "movies"
-                            JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
-                            JOIN "genres" ON "genres".id = "movies_genres".genres_id
-                            WHERE "movies".id = $1;`;
-
-                            // `SELECT "movies".id, "movies".poster, "movies".title, "movies".description, "genres".name AS "genre_name" FROM "movies"
+                            // `SELECT "movies".id, "movies".poster, "movies".title, "movies".description, "genres".name FROM "movies"
                             // JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
                             // JOIN "genres" ON "genres".id = "movies_genres".genres_id
-                            // WHERE "movies".id = $1;`;                 
+                            // WHERE "movies".id = $1;`;
+
+                            `SELECT "movies".id, "movies".poster, "movies".title, "movies".description, "genres".name AS "genre_name" FROM "movies"
+                            JOIN "movies_genres" ON "movies".id = "movies_genres".movies_id
+                            JOIN "genres" ON "genres".id = "movies_genres".genres_id
+                            WHERE "movies".id = $1;`;                 
     value = req.params.id                  
     pool.query(sqlText, [value] )
     .then((response)=>{
