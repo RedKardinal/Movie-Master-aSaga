@@ -20,7 +20,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_ID_DETAILS', fetchGenre);
-    // yield takeEvery('PUT_DETAILS', putDetails);
+    yield takeEvery('PUT_DETAILS', putDetails);
 
 }
 
@@ -47,11 +47,11 @@ function* fetchGenre(action){
 }
 
 //------------ PUT DETAILS ----------------//
-// function* putDetails(action) {
-//     yield axios.put(`movies/update/${action.payload.id}`)
-//     console.log('This is from the PUT DETAILS index.js', response.data); 
-//     yield put ({type:})
-// }
+function* putDetails(action) {
+    // yield axios.put(`movies/update/${action.payload.id}`)
+    console.log('This is from the PUT DETAILS index.js', action.payload.id); 
+    // yield put ({type:})
+}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

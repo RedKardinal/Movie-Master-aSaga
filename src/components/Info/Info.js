@@ -27,8 +27,8 @@ class Info extends Component {
         this.props.history.push('/')
     }
 
-    editInfo = () => {
-        this.props.history.push(`/Edit/`)
+    editInfo = (id) => {
+        this.props.history.push(`/Edit/${id}`)
     }
 
 
@@ -50,11 +50,11 @@ class Info extends Component {
                         </div>
                         <div>
                             <Button onClick={this.handleBack} variant='contained' color="primary">Back</Button>
-                            <Button onClick={this.editInfo} variant='contained' color="primary">Edit</Button>
+                            <Button onClick={() => this.editInfo(movies.id)} variant='contained' color="primary">Edit</Button>
                         </div>
                       </div>
-                  )
-            })}
+                  ) 
+            })} {/* end map of details */}
           </div>
         </Router>
       );
