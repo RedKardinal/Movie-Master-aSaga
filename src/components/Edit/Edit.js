@@ -16,23 +16,25 @@ import { Button } from '@material-ui/core'
 class Edit extends Component {
 
     state = {
+        id: this.props.match.params.id,
         title: '',
+        description: '',
     };
     
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ID_DETAILS', payload: this.props.match.params })
         console.log(this.props.match.params.id);
-    } // end DidMount
+    } // end DidMount (Populate Page with current movie details)
 
     handleChange = (event) => {
         this.setState({
           title: event.target.value
         })
-    }
+    } // handles Change in input fields
 
     handleTitle = (event) => {
         console.log('Title Change!', this.state.title);
-        this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state.title })
+        this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
     }
 
     // handleDescription = () => {
@@ -57,7 +59,7 @@ class Edit extends Component {
                             <input onChange={this.handleChange} type="text" placeholder="Change Title"></input>
                             <br/>
                             <br/>
-                            <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button>
+                            {/* <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button> */}
                             {/* <h3>{movies.genre_name}</h3> */}
                         </div>
                         <div>

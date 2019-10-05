@@ -39,7 +39,7 @@ function* fetchMovies(){
 function* fetchGenre(action){
     try{
         const response = yield axios.get(`/movies/${action.payload.id}`)
-        console.log('This is from the GET genres index.js', response.data); 
+        // console.log('This is from the GET genres index.js', response.data); 
         yield put ({ type: 'SET_GENRES', payload: response.data})
     }catch(error){
         console.log('Error from fetchGenre', error);
@@ -48,9 +48,13 @@ function* fetchGenre(action){
 
 //------------ PUT DETAILS ----------------//
 function* putDetails(action) {
+    try {
     // yield axios.put(`movies/update/${action.payload.id}`)
-    console.log('This is from the PUT DETAILS index.js', action.payload.id); 
-    // yield put ({type:})
+    console.log('This is from the PUT DETAILS index.js', action.payload.id)
+    // yield put ({type:,})
+    }catch(error){
+        console.log('Error from fetchGenre', error);
+    }
 }
 
 // Create sagaMiddleware
