@@ -10,24 +10,24 @@ class Home extends Component {
     // Renders the entire app on the DOM
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
-    }
+    } // end DidMount
 
-    // clickMovie = (id) => {
-    //     console.log('Clicked!');
-    //     this.props.history.push(`/Info/:${id}`)
-    //     this.props.dispatch({ type: 'FETCH_ID', payload: id });
-    // }
+    handleClick = (id) => {
+        console.log('Clicked!');
+        this.props.history.push(`/Info/:${id}`)
+        this.props.dispatch({ type: 'FETCH_ID', payload: id });
+    } // end handleClick
 
     render() {
       return (
           <div className="Home">
               <p>Test This is text</p>
-              {/* <div className="movieMap">
-              {this.state.movieList.map((movies) => {
+              <div className="movieMap">
+              {this.props.reduxState.movieList.map((movies) => {
                   return (
-                      <img src={movies.poster} />
+                      <img onClick={this.handleClick} key={movies.id} src={movies.poster} alt={movies.title}/>
                   )
-              })} */}
+              })}
               </div>     
           </div>
       );
