@@ -45,9 +45,11 @@ class Info extends Component {
                             <h2>{movies.title}</h2>
                             <h3>{movies.genre_name}</h3>
                         </div>
-                        <div>
+                        <div className="description">
                             <p>{movies.description}</p>
                         </div>
+                        <br />
+                        <br />
                         <div>
                             <Button onClick={this.handleBack} variant='contained' color="primary">Back</Button>
                             <Button onClick={() => this.editInfo(movies.id)} variant='contained' color="primary">Edit</Button>

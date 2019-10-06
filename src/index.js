@@ -21,8 +21,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_ID_DETAILS', fetchGenre);
     yield takeEvery('PUT_DETAILS', putDetails);
-
-}
+};
 
 //------------ GET MOVIES ----------------//
 function* fetchMovies(){
@@ -33,7 +32,7 @@ function* fetchMovies(){
     } catch (error) {
         console.log('Error while fetching movies (index.js)', error);
     }    
-}
+}; // end
 
 //------------ GET GENRE ----------------//
 function* fetchGenre(action){
@@ -44,7 +43,7 @@ function* fetchGenre(action){
     }catch(error){
         console.log('Error from fetchGenre', error);
     }
-}
+}; // end
 
 //------------ PUT DETAILS ----------------//
 function* putDetails(action) {
@@ -55,7 +54,7 @@ function* putDetails(action) {
     }catch(error){
         console.log('Error from fetchGenre', error);
     }
-}
+}; // end
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -68,7 +67,7 @@ const movieList = (state = [], action) => {
         default:
             return state;
     }
-}
+}; // end
 
 // Used to store the movie genres
 const genres = (state = [], action) => {
@@ -78,7 +77,7 @@ const genres = (state = [], action) => {
         default:
             return state;
     }
-}
+}; // end
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -88,7 +87,7 @@ const storeInstance = createStore(
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
-);
+); // end
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);

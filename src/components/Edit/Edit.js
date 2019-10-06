@@ -54,16 +54,19 @@ class Edit extends Component {
                   return (
                       <div key={movies.id}>
                       {/* <img src={movies.poster} alt={movies.title}/> */}
-                        <div>
+                        <div className="infoArea">
                             <h2>{movies.title}</h2>
-                            <input onChange={this.handleChange} type="text" placeholder="Change Title"></input>
                             <br/>
                             <br/>
                             {/* <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button> */}
-                            {/* <h3>{movies.genre_name}</h3> */}
-                        </div>
-                        <div>
+                            {/* <h3>{movies.genre_name}</h3> */}                  
                             <p>{movies.description}</p>
+                        </div>
+                            <br />
+                        <div>
+                            <input onChange={this.handleChange} type="text" placeholder="Change Title"></input>
+                            <br />
+                            <br />
                             <input placeholder="Change Description"></input>
                             <br/>
                             <br/>

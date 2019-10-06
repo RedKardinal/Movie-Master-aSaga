@@ -26,12 +26,12 @@ class Home extends Component {
               <div className="movieMap">
               {this.props.reduxState.movieList.map((movies) => {
                   return (
-                      <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title}/>
+                      <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title}  width="200" height="280" className="img"/>
                   )
               })} {/* End map of movies */}
               </div>     
           </div>
-      );
+      ); 
     }
   }
 

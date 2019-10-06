@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    /* background-image: url('./images/movie-theater.jpeg'); */
+}
+h1 {
+    color: white;
+    padding: 20px;
+    margin: 20px;
+}
+.movieMap {
+    border: blue solid 1px;
+}
+.img {
+    border: white solid 1px;
+    padding: 10px;
+    margin: 10px;
+    padding: 20px;
+    margin: 20px;
+
+}
+.img:hover {
+    background-color: yellow;
+}
