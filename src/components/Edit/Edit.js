@@ -20,7 +20,7 @@ class Edit extends Component {
     state = {
         id: this.props.match.params.id,
         title: ``,
-        description: `${this.props.match.title}`,
+        description: ``,
 
     };
     
@@ -40,7 +40,7 @@ class Edit extends Component {
     handleUpdate = () => {
         console.log('Title Change!', this.state);
         this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
-        this.handleBack();
+        // this.handleBack();
     }
 
     handleBack = (id) => {
@@ -69,7 +69,6 @@ class Edit extends Component {
                             onChange={ (event) => this.handleChange('title', event)}
                             defaultValue={movies.title}
                             type="text"
-                            
                             varient="outlined"
                             placeholder={movies.title}>
                             </TextField>

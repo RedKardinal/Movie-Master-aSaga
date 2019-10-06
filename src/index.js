@@ -20,6 +20,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_ID_DETAILS', fetchGenre);
+    yield takeEvery('FETCH_GENRE_NAMES', fetchGenreNames);
     yield takeEvery('PUT_DETAILS', putDetails);
 };
 
@@ -34,7 +35,7 @@ function* fetchMovies(){
     }    
 }; // end
 
-//------------ GET GENRE ----------------//
+//------------ GET GENRE (ID)----------------//
 function* fetchGenre(action){
     try{
         const response = yield axios.get(`/movies/${action.payload.id}`)
@@ -43,6 +44,17 @@ function* fetchGenre(action){
     }catch(error){
         console.log('Error from fetchGenre', error);
     }
+}; // end
+
+//------------ GET GENRE NAMES ----------------//
+function* fetchGenreNames(){
+    try {
+        const response = yield axios.get('/movies/getmy/genres');
+        console.log('This is from the GET GENRE NAMEs index.js', response.data);        
+        yield put({ type: 'SET_GENRE_NAME', payload: response.data });
+    } catch (error) {
+        console.log('Error while fetching genreName (index.js)', error);
+    }    
 }; // end
 
 //------------ PUT DETAILS ----------------//
@@ -69,7 +81,7 @@ const movieList = (state = [], action) => {
     }
 }; // end
 
-// Used to store the movie genres
+// Used to store the movie genres (REALLY THE ID)
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
@@ -79,11 +91,24 @@ const genres = (state = [], action) => {
     }
 }; // end
 
+// Used to store Genre Name
+const setGenreName = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_GENRE_NAME':
+            return action.payload;
+        default:
+            return state;
+    }
+}; // end
+
+
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movieList,
         genres,
+        setGenreName,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

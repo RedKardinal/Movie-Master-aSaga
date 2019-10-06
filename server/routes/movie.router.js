@@ -37,6 +37,17 @@ router.get('/:id', (req, res)=> {
     });
 }); // end ID request
 
+// ---- GET ALL GENRE NAMES ---- //
+router.get('/getmy/genres', (req, res) => {
+    const queryText =   `SELECT * FROM "genres" ORDER BY "name" ASC;`
+    pool.query(queryText)
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing SELECT genre query', error);
+            resl.sendStatus(500);
+        });
+}); // end GET ALL GENRE NAMES
+
 // ---- UPDATE MOVIE INFO ---- //
 router.put('/', (req, res) => {
     const queryText =   `UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;`
