@@ -10,6 +10,8 @@ import '../Edit/Edit.css'
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Input from '@material-ui/core/Input'
 import { Button } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField';
+
 // ---- Material UI Designs ---- //
 
 // -------------------- END IMPORTS --------------------- //
@@ -35,11 +37,10 @@ class Edit extends Component {
         console.log('Edit', this.state)
     } // handles Change in input fields
 
-    handleTitle = () => {
-        console.log('Title Change!', this.state.title);
+    handleUpdate = () => {
+        console.log('Title Change!', this.state);
         this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
-        this.props.history.push('/Info')
-
+        this.handleBack();
     }
 
     handleBack = (id) => {
@@ -64,13 +65,14 @@ class Edit extends Component {
                             <p>{movies.description}</p>
                         </div>
                             <br />
-                        <div>
-                            <input onChange={this.handleChange}
+                        <div className="textFields">
+                            <Textfield onChange={this.handleChange}
                             onChange={ (event) => this.handleChange('title', event)}
                             value={this.state.title}  
                             type="text" 
                             placeholder="Change Title">
-                            </input>
+                            fullWidth
+                            </Textfield>
                             <br />
                             <br />
                             <input
@@ -80,12 +82,11 @@ class Edit extends Component {
                             </input>
                             <br/>
                             <br/>
-                            <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button>
                         </div>
                         <br />
                         <div>
                             <Button onClick={() => this.handleBack(movies.id)} variant='contained' color="primary">Cancel</Button>
-                            <Button onClick={this.editInfo} variant='contained' color="primary">Edit</Button>
+                            <Button onClick={this.handleUpdate} variant='contained' color="primary">Edit</Button>
                         </div>
                       </div>
                   )

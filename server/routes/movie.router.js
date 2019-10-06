@@ -40,8 +40,8 @@ router.get('/:id', (req, res)=> {
 // ---- UPDATE MOVIE INFO ---- //
 router.put('/', (req, res) => {
     const queryText =   `UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;`
-    values = req.body.name, req.body.description, req.body.id                
-    pool.query(queryText, [values])
+    console.log(req.body);               
+    pool.query(queryText, [req.body.title, req.body.description, req.body.id])
         .then((result) => { res.send(result.rows); })
         .catch((error) => {
             console.log('Error completing PUT in router.js', error);

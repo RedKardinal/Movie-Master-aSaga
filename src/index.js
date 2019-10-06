@@ -48,8 +48,8 @@ function* fetchGenre(action){
 //------------ PUT DETAILS ----------------//
 function* putDetails(action) {
     try {
-    // yield axios.put(`movies/update/${action.payload.id}`)
-    console.log('This is from the PUT DETAILS index.js', action.payload.id)
+    yield axios.put(`/movies`, action.payload)
+    console.log('This is from the PUT DETAILS index.js', action.payload)
     // yield put ({type:,})
     }catch(error){
         console.log('Error from fetchGenre', error);
@@ -79,11 +79,20 @@ const genres = (state = [], action) => {
     }
 }; // end
 
+const movieDetails = (state = {}, action) =>{
+    if (action.type === 'SET_MOVIE_DETAILS'){
+        return action.payload;
+    }
+    return state;
+
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movieList,
         genres,
+        movieDetails,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
