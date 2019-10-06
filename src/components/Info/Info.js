@@ -41,12 +41,12 @@ class Info extends Component {
                   return (
                       <div key={movies.id}>
                       <img src={movies.poster} alt={movies.title}/>
-                        <div>
+                        <div className="description">
                             <h2>{movies.title}</h2>
                             <h3>{movies.genre_name}</h3>
-                        </div>
-                        <div className="description">
+                        <div>
                             <p>{movies.description}</p>
+                        </div>
                         </div>
                         <br />
                         <br />

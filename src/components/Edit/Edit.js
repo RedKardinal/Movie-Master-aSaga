@@ -8,6 +8,7 @@ import '../Edit/Edit.css'
 // ---- Material UI ------ // 
 // import { createMuiTheme } from '@material-ui/core/styles';
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import Input from '@material-ui/core/Input'
 import { Button } from '@material-ui/core'
 // ---- Material UI Designs ---- //
 
@@ -26,20 +27,20 @@ class Edit extends Component {
         console.log(this.props.match.params.id);
     } // end DidMount (Populate Page with current movie details)
 
-    handleChange = (event) => {
+    handleChange = (propertyName, event) => {
         this.setState({
-          title: event.target.value
+            ...this.state,
+            [propertyName]: event.target.value
         })
+        console.log('Edit', this.state)
     } // handles Change in input fields
 
-    handleTitle = (event) => {
+    handleTitle = () => {
         console.log('Title Change!', this.state.title);
         this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
-    }
+        this.props.history.push('/Info')
 
-    // handleDescription = () => {
-    //     console.log('Description Change');     
-    // }
+    }
 
     handleBack = (id) => {
         this.props.history.push(`/Info/${id}`)
@@ -64,10 +65,19 @@ class Edit extends Component {
                         </div>
                             <br />
                         <div>
-                            <input onChange={this.handleChange} type="text" placeholder="Change Title"></input>
+                            <input onChange={this.handleChange}
+                            onChange={ (event) => this.handleChange('title', event)}
+                            value={this.state.title}  
+                            type="text" 
+                            placeholder="Change Title">
+                            </input>
                             <br />
                             <br />
-                            <input placeholder="Change Description"></input>
+                            <input
+                            onChange={ (event) => this.handleChange('description', event)}
+                            value={this.state.description}
+                            placeholder="Change Description">
+                            </input>
                             <br/>
                             <br/>
                             <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button>
