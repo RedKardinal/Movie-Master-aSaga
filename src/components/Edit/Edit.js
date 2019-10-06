@@ -11,7 +11,6 @@ import '../Edit/Edit.css'
 import Input from '@material-ui/core/Input'
 import { Button } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
-
 // ---- Material UI Designs ---- //
 
 // -------------------- END IMPORTS --------------------- //
@@ -20,8 +19,9 @@ class Edit extends Component {
 
     state = {
         id: this.props.match.params.id,
-        title: '',
-        description: '',
+        title: ``,
+        description: `${this.props.match.title}`,
+
     };
     
     componentDidMount() {
@@ -60,26 +60,31 @@ class Edit extends Component {
                             <h2>{movies.title}</h2>
                             <br/>
                             <br/>
-                            {/* <Button onClick={this.handleBack} variant='contained' color="primary">Submit</Button> */}
                             {/* <h3>{movies.genre_name}</h3> */}                  
                             <p>{movies.description}</p>
                         </div>
                             <br />
                         <div className="textFields">
-                            <Textfield onChange={this.handleChange}
+                            <TextField 
                             onChange={ (event) => this.handleChange('title', event)}
-                            value={this.state.title}  
-                            type="text" 
-                            placeholder="Change Title">
-                            fullWidth
-                            </Textfield>
+                            defaultValue={movies.title}
+                            type="text"
+                            
+                            varient="outlined"
+                            placeholder={movies.title}>
+                            </TextField>
                             <br />
                             <br />
-                            <input
+                            <TextField
                             onChange={ (event) => this.handleChange('description', event)}
-                            value={this.state.description}
-                            placeholder="Change Description">
-                            </input>
+                            // value={this.state.description}
+                            defaultValue={movies.description}
+                            multiline
+                            fullWidth
+                            rows="5"
+                            varient="outlined"
+                            placeholder={movies.description}>
+                            </TextField>
                             <br/>
                             <br/>
                         </div>
