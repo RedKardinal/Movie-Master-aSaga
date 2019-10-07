@@ -1,16 +1,13 @@
 body {
     background-color: black;
-    /* background-image: url("Media/MovieTheatre.jpg"); */
-    background-position: stretch;
-    background-repeat:
 }
 .genres {
     color: white;
     display: inline-flex;
-    padding: 7px;
+    padding: 8px;
+    text-align: center;
 }
 .movieMap {
-    border: red dotted 1px;
     align-content: center;
     align-items: center;
     margin: auto;
@@ -21,11 +18,12 @@ body {
     /* border: white solid 1px; */
     padding: 8px;
     margin: 8px;
-
-
 }
 .img:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+}
+.genreContainer {
+    text-align: center;
 }

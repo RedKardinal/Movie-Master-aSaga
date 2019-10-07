@@ -21,27 +21,27 @@ class Home extends Component {
     } // end handleClick
 
     render() {
-      return (
-          <div className="Home">
-              <div>
-              </div>
+        return (
+            <div className="Home">
+                <div className="genreContainer">
                 {this.props.reduxState.setGenreName.map((genre) => {
                     return (
                         <h4 className="genres" key={genre.id}> {genre.name} </h4>
                     )
-                })}
-              <div className="movieMap">
-              {this.props.reduxState.movieList.map((movies) => {
-                  return (
-                    
-                      <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title}  width="120" height="180" className="img"/>
-                  )
-              })} {/* End map of movies */}
-              </div>     
-          </div>
-      ); 
+                })} {/* End map of genre */}
+                </div>
+                <div className="movieMap">
+                    {this.props.reduxState.movieList.map((movies) => {
+                        return (
+
+                            <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title} width="120" height="180" className="img" />
+                        )
+                    })} {/* End map of movies */}
+                </div>
+            </div>
+        );
     }
-  }
+}
 
 const mapStateToProps = reduxState => ({
     reduxState,

@@ -6,11 +6,8 @@ body {
   background-image: url('./Media/banner.png');
   background-position: stretch;
   background-repeat: no-repeat;
+  background-size: cover;
   height: 199px;
-}
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 h1 {
   color: lightyellow;
@@ -25,5 +22,17 @@ h1 {
 @font-face {
     font-family: "MovieFont";
     src: url("Media/MOVIE.ttf");
-
+}
+@font-face {
+  font-family: "GenreFont";
+  src: url('Media/genre.ttf');
+}
+h4 {
+  font-family: 'genreFont';
+  font-size: 20px;
+  text-align: center;
+}
+body {
+   background-image: url('./Media/theatre.jpg');
+   background-position: center;
 }
