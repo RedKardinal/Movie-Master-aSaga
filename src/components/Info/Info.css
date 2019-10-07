@@ -9,13 +9,14 @@
     text-align: center;
     margin: 0px auto; */
     padding:2px;
-    border:1px solid #FFA11B;
-    background-color: #FFC71B;
+    /* border:1px solid #FFA11B;
+    background-color: #FFC71B; */
     vertical-align:middle;
     color:835600;
     margin-left:auto;
     margin-right:auto;
     text-align:center;
+    color: white;
 
 }
 .buttons {

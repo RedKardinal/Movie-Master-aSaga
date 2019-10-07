@@ -35,7 +35,7 @@ class Edit extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_ID_DETAILS', payload: this.props.match.params })
-        console.log(this.props.match.params.id);
+        // console.log(this.props.match.params.id);
     } // end DidMount (Populate Page with current movie details)
 
     handleChange = (propertyName, event) => {
@@ -44,11 +44,11 @@ class Edit extends Component {
             [propertyName]: event.target.value,
             button: false
         })
-        console.log('Edit', this.state)
+        // console.log('Edit', this.state)
     } // handles Change in input fields
 
     handleUpdate = () => {
-        console.log('Title Change!', this.state);
+        // console.log('Title Change!', this.state);
         this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
         // this.handleBack();
     }
@@ -62,23 +62,16 @@ class Edit extends Component {
             <Router>
                 <MuiThemeProvider theme={theme}>
                     <div className="EditPage">
-                        <h2>Test Edit</h2>
                         {this.props.reduxState.genres.map((movies) => {
                             return (
                                 <div key={movies.id}>
-                                    {/* <img src={movies.poster} alt={movies.title}/> */}
-                                    <div className="infoArea">
-                                        <h2>{movies.title}</h2>
-                                        <br />
-                                        <br />
-                                        {/* <h3>{movies.genre_name}</h3> */}
-                                        <p>{movies.description}</p>
-                                    </div>
+                                    <img src={movies.poster} alt={movies.title} className="poster"/>
                                     <br />
                                     <div className="textFields">
                                         <TextField
                                             onChange={(event) => this.handleChange('title', event)}
                                             defaultValue={movies.title}
+                                            fullWidth
                                             type="text"
                                             varient="outlined"
                                             placeholder={movies.title}>
@@ -87,19 +80,20 @@ class Edit extends Component {
                                         <br />
                                         <TextField
                                             onChange={(event) => this.handleChange('description', event)}
-                                            // value={this.state.description}
+                                            id="outlined-multiline-static"
                                             defaultValue={movies.description}
                                             multiline
                                             fullWidth
                                             rows="5"
-                                            varient="outlined"
+                                            variant="outlined"
+                                            margin="normal"
                                             placeholder={movies.description}>
                                         </TextField>
                                         <br />
                                         <br />
                                     </div>
                                     <br />
-                                    <div>
+                                    <div className="buttons">
                                         <Button onClick={() => this.handleBack(movies.id)} variant='contained' color="primary">Back</Button>
                                         <Button onClick={this.handleUpdate} variant='contained' color="primary" disabled={this.state.button}>Edit</Button>
                                     </div>

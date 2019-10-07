@@ -9,4 +9,23 @@
 }
 .textFields {
     background-color: white;
+    opacity: 0.5;
+    text-align: center;
+    align-content: center;
+
+}
+.poster {
+    align-content: center;
+    align-items: center;
+    display: block;
+    image-orientation: initial;
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    /* padding-left: 500px; */
+}
+.buttons {
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 50px;
 }
