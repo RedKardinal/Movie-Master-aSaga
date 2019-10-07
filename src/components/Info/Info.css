@@ -1,4 +1,38 @@
+.info {
+    text-align: center;
+}
 .description {
-    background-color: beige;
+    /* background-color: beige;
     border: 1px black solid;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+    margin: 0px auto; */
+    padding:2px;
+    border:1px solid #FFA11B;
+    background-color: #FFC71B;
+    vertical-align:middle;
+    color:835600;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+
+}
+.buttons {
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.poster {
+    align-content: center;
+    align-items: center;
+    display: block;
+    image-orientation: initial;
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    /* padding-left: 500px; */
+}
+.edit {
+    padding-left: 100px;
 }
