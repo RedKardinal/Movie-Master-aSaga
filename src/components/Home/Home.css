@@ -1,11 +1,16 @@
 body {
-    background-color: white;
+    background-color: black;
     /* background-image: url('./images/movie-theater.jpeg'); */
 }
 h1 {
     color: white;
     padding: 20px;
     margin: 20px;
+}
+.genres {
+    color: white;
+    display: inline-flex;
+    padding: 7px;
 }
 .movieMap {
     border: blue solid 1px;
@@ -14,8 +19,6 @@ h1 {
     border: white solid 1px;
     padding: 10px;
     margin: 10px;
-    padding: 20px;
-    margin: 20px;
 
 }
 .img:hover {

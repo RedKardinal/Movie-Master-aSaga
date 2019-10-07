@@ -23,14 +23,14 @@ class Home extends Component {
     render() {
       return (
           <div className="Home">
-              <h1>Home Page</h1>
-              <div >
+              <div>
+                <h1>Home Page</h1>
+              </div>
                 {this.props.reduxState.setGenreName.map((genre) => {
                     return (
-                        <p>{genre.name}</p>
+                        <h4 displayStyle="flex" className="genres" key={genre.id}> {genre.name} </h4>
                     )
                 })}
-              </div>
               <div className="movieMap">
               {this.props.reduxState.movieList.map((movies) => {
                   return (

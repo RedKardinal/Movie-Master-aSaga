@@ -26,7 +26,7 @@ function* rootSaga() {
 
 //------------ GET MOVIES ----------------//
 function* fetchMovies(){
-    try {
+    try {                               // list all movies on homepage.
         const response = yield axios.get('/movies');
         console.log('This is from the GET MOVIES index.js', response.data);        
         yield put({ type: 'SET_MOVIES', payload: response.data });
@@ -37,7 +37,7 @@ function* fetchMovies(){
 
 //------------ GET GENRE (ID)----------------//
 function* fetchGenre(action){
-    try{
+    try{                                    // Getting IDs for movie details
         const response = yield axios.get(`/movies/${action.payload.id}`)
         // console.log('This is from the GET genres index.js', response.data); 
         yield put ({ type: 'SET_GENRES', payload: response.data})
@@ -48,7 +48,7 @@ function* fetchGenre(action){
 
 //------------ GET GENRE NAMES ----------------//
 function* fetchGenreNames(){
-    try {
+    try {                                   // display Genres on homepage
         const response = yield axios.get('/movies/getmy/genres');
         console.log('This is from the GET GENRE NAMEs index.js', response.data);        
         yield put({ type: 'SET_GENRE_NAME', payload: response.data });
@@ -59,7 +59,7 @@ function* fetchGenreNames(){
 
 //------------ PUT DETAILS ----------------//
 function* putDetails(action) {
-    try {
+    try {                       // edit title and description
     yield axios.put(`/movies`, action.payload)
     console.log('This is from the PUT DETAILS index.js', action.payload)
     // yield put ({type:,})
@@ -100,8 +100,6 @@ const setGenreName = (state = [], action) => {
             return state;
     }
 }; // end
-
-
 
 // Create one store that all components can use
 const storeInstance = createStore(

@@ -14,21 +14,18 @@ Info Page
 
 The details page has the buttons:
 
-    Back to List button, which should bring the user to the Home Page
-    Edit button, which should bring the user to the Edit Page
-    Base functionality does not require the movie details to load correctly after refresh of the browser.
+[x]   Back to List button, which should bring the user to the Home Page
+[x]   Edit button, which should bring the user to the Edit Page
+[x]   Functionality does not require the movie details to load correctly after refresh of the browser.
 
 Edit Page
-This should show:
 
-an input field (for changing the movie title), for the selected movie.
-a textarea (for changing the movie description)
-The details page should have the buttons:
+[x]   Input field (for changing the movie title), for the selected movie.
+[x]   Textarea (for changing the movie description)
+[x]   Back button, brings the user to the Details Page
+[x]   Save button, updates the title and description in the database and bring the user to the Details Page
 
-Cancel button, which should bring the user to the Details Page
-Save button, which should update the title and description in the database and bring the user to the Details Page
 General Tasks
-As one of your last projects, it's possible you will be sharing this with employers, so be sure to follow best practices and make it look good!
 
  Invest some time in styling it up!
  Research grids for you movie posters on the Move List page
@@ -36,6 +33,7 @@ As one of your last projects, it's possible you will be sharing this with employ
  Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
  Comment your code.
  Update this README to include a description of the project in your own words.
+ 
 Stretch Goals
  Display the current values in the input (title) and textarea (description) on the Edit Page
  Display all genres on movie list page. Research array_agg to make this possible.
