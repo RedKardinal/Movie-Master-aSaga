@@ -1,11 +1,8 @@
 body {
     background-color: black;
-    /* background-image: url('./images/movie-theater.jpeg'); */
-}
-h1 {
-    color: white;
-    padding: 20px;
-    margin: 20px;
+    /* background-image: url("Media/MovieTheatre.jpg"); */
+    background-position: stretch;
+    background-repeat:
 }
 .genres {
     color: white;
@@ -13,14 +10,22 @@ h1 {
     padding: 7px;
 }
 .movieMap {
-    border: blue solid 1px;
+    border: red dotted 1px;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
 }
 .img {
-    border: white solid 1px;
-    padding: 10px;
-    margin: 10px;
+    /* border: white solid 1px; */
+    padding: 8px;
+    margin: 8px;
+
 
 }
 .img:hover {
-    background-color: yellow;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }

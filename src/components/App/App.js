@@ -10,10 +10,13 @@ import Info from '../Info/Info';
 import Edit from '../Edit/Edit';
 
 class App extends Component {
-  // Renders the entire app on the DOM
+
   render() {
     return (
       <Router>
+        <div className="appHeader">
+          <h1>The Movie Saga</h1>
+        </div>
         <div className="App">
           <Route exact path='/' component={Home}></Route>
           <Route exact path='/Info/:id' component={Info}></Route>

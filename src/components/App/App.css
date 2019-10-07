@@ -1,25 +1,29 @@
 body {
   background-color: bisque;
 }
-.App {
-  text-align: center;
-}
-
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-.App-intro {
-  font-size: large;
+.appHeader {
+  background-color: black;
+  background-image: url('./Media/banner.png');
+  background-position: stretch;
+  background-repeat: no-repeat;
+  height: 199px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+h1 {
+  color: lightyellow;
+  padding-top: 23px;
+  padding-right: 120px;
+  margin: 10px;
+  font-family: 'MovieFont';
+  font-stretch: expanded;
+  font-size: 80px;
+  text-align: right;
+}
+@font-face {
+    font-family: "MovieFont";
+    src: url("Media/MOVIE.ttf");
+
 }
