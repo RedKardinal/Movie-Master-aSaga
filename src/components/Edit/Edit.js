@@ -50,7 +50,7 @@ class Edit extends Component {
     handleUpdate = () => {
         // console.log('Title Change!', this.state);
         this.props.dispatch({ type: 'PUT_DETAILS', payload: this.state })
-        // this.handleBack();
+        this.handleBack();
     }
 
     handleBack = (id) => {

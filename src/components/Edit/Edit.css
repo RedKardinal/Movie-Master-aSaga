@@ -1,15 +1,7 @@
-.infoArea {
-    background-color: wheat;
-    border: 1px solid blue;
-    margin: 80px;
-    margin-left: 40px;
-    margin-right: 40px;
-    padding: 80px;
 
-}
 .textFields {
     background-color: white;
-    opacity: 0.5;
+    opacity: 0.8;
     text-align: center;
     align-content: center;
 

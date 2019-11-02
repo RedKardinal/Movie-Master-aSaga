@@ -17,7 +17,7 @@ class Home extends Component {
     handleClick = (id) => {
         console.log('Clicked!');
         this.props.history.push(`/Info/${id}`)
-        this.props.dispatch({ type: 'FETCH_ID', payload: id });
+        // this.props.dispatch({ type: 'FETCH_ID', payload: id });
     } // end handleClick
 
     render() {
@@ -28,7 +28,7 @@ class Home extends Component {
                     return (
                         <h4 className="genres" key={genre.id}> {genre.name} </h4>
                     )
-                })} {/* End map of genre */}
+                })} 
                 </div>
                 <div className="movieMap">
                     {this.props.reduxState.movieList.map((movies) => {
@@ -36,7 +36,7 @@ class Home extends Component {
 
                             <img onClick={() => this.handleClick(movies.id)} key={movies.id} src={movies.poster} alt={movies.title} width="120" height="180" className="img" />
                         )
-                    })} {/* End map of movies */}
+                    })}
                 </div>
             </div>
         );

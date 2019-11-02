@@ -31,6 +31,10 @@ class Info extends Component {
     // console.log(this.props.match.params.id);
   } // end DidMount
 
+  // componentDidUpdate(){
+  //   this.props.dispatch({ type: 'FETCH_ID_DETAILS', payload: this.props.match.params })
+  // }
+
   handleBack = () => {
     this.props.history.push('/')
   } // back to home.
@@ -38,6 +42,8 @@ class Info extends Component {
   editInfo = (id) => {
     this.props.history.push(`/Edit/${id}`)
   } // to edit page.
+
+
 
 
   render() {

@@ -62,7 +62,8 @@ function* putDetails(action) {
     try {                       // edit title and description
     yield axios.put(`/movies`, action.payload)
     console.log('This is from the PUT DETAILS index.js', action.payload)
-    // yield put ({type:,})
+    // REFRESH ON BACK@!!!!!
+    yield fetchGenreNames();
     }catch(error){
         console.log('Error from fetchGenre', error);
     }
@@ -70,7 +71,7 @@ function* putDetails(action) {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
-
+//----------------------------------------------------------------------------//
 // Used to store movies returned from the server
 const movieList = (state = [], action) => {
     switch (action.type) {
